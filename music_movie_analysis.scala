@@ -84,7 +84,7 @@ genre5.take(3)
 val movie_id = rdd7.map(line => line._1)
 val genre6 = genre5.filter(line => movie_id contains line(0))
 genre6.take(3)
-val genre7 = genre6.map(line => (line(0), line(8)))
+val genre7 = genre6.map(line => (line(0), (line(8), line(2))))
 genre7.take(3)
 val rdd8 = rdd7.zipWithIndex.map{ case (r, i) => (r._1, r._2, i) }
 val rdd8_new = sc.parallelize(rdd8)
@@ -92,7 +92,7 @@ val rdd9 = rdd8.map(line => (line._1, (line._2, line._3)))
 val rdd10 = sc.parallelize(rdd9)
 val moviejoin = rdd10.join(genre7)
 moviejoin.take(3)
-val moviejoin1 = moviejoin.map(line => (line._2._1._2, line._1, line._2._1._1, line._2._2))
+val moviejoin1 = moviejoin.map(line => (line._2._1._2, line._1, line._2._1._1, line._2._2._1, line._2._2._2))
 val moviejoin2 = moviejoin1.sortBy(_._1, true)
 
 //>=800 votes, top 100, its genre and ratings
