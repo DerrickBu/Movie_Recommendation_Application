@@ -68,7 +68,7 @@ data = {
     val top_movies = recommendations_RDD.filter(line => line._3 >= 25).takeOrdered(25)(Ordering[Double].reverse.on(x => x._2));
     val new_r = sc.parallelize(top_movies);
     new_r.saveAsTextFile("/user/sb6606/top_movies");
-""")
+    """)
 }
 
 r = requests.post(statements_url, data=json.dumps(data), headers=headers)
