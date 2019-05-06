@@ -1,5 +1,5 @@
 import json, pprint, requests, textwrap
-host = 'http://localhost:8998'
+host = 'http://localhost:2345'
 data = {'kind': 'spark'}
 headers = {'Content-Type': 'application/json'}
 r = requests.post(host + '/sessions', data=json.dumps(data), headers=headers)
