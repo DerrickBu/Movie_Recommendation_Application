@@ -10,9 +10,9 @@ some rating recordings. Fianlly, we will predict what movies
 the new user may like using our trained model and recommend 
 some movies based on the prediction. 
 
-What's more, makeing our application integrated and a complete
-pipeline, we build a web service on the top of our data processing
-based on the framework Livy, which is a REST interface.
+What's more, making our application integrated and a complete
+pipeline, we build a web service on top of our data processing
+phase based on Livy, which is a REST interface framework.
 
 There are basically three parts of this application:
 
